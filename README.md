@@ -1,4 +1,4 @@
-# description of the package
+# Laravel HTML Minifier
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/dipeshsukhia/laravel-html-minify.svg?style=flat-square)](https://packagist.org/packages/dipeshsukhia/laravel-html-minify)
 [![Build Status](https://img.shields.io/travis/dipeshsukhia/laravel-html-minify/master.svg?style=flat-square)](https://travis-ci.org/dipeshsukhia/laravel-html-minify)
