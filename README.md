@@ -22,9 +22,9 @@ php artisan vendor:publish --tag=LaravelHtmlMinify
 
 add in env
 for enable
-Html_Minify = true
+HTML_MINIFY = true
 for disable
-Html_Minify = false
+HTML_MINIFY = false
 ```
 
 ### Testing
