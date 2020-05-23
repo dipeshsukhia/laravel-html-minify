@@ -1,8 +1,14 @@
 <?php
 
-/*
- * You can place your custom package configuration in here.
- */
 return [
-    'default' => env('Html_Minify', true),
+    /*
+    |--------------------------------------------------------------------------
+    | Env Variable for HTML_MINIFY
+    |--------------------------------------------------------------------------
+    |
+    | Set this value to the false if you don't need html minify
+    | this is by default "true"
+    |
+    */
+    'default' => env('HTML_MINIFY', true),
 ];
