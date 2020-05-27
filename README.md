@@ -20,6 +20,9 @@ composer require dipeshsukhia/laravel-html-minify
 ``` php
 php artisan vendor:publish --tag=LaravelHtmlMinify
 
+you should add middleware to your web middleware group within your app/Http/Kernel.php file:
+'LaravelMinifyHtml'
+
 add in env
 for enable
 HTML_MINIFY = true
