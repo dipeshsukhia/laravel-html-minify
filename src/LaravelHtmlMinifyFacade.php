@@ -18,4 +18,9 @@ class LaravelHtmlMinifyFacade extends Facade
     {
         return 'laravel-html-minify';
     }
+
+    public static function htmlMinify($html = null)
+    {
+        return (new LaravelHtmlMinify())->htmlMinify($html);
+    }
 }

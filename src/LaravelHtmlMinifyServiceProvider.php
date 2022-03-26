@@ -54,7 +54,7 @@ class LaravelHtmlMinifyServiceProvider extends ServiceProvider
 
         // Register the main class to use with the facade
         $this->app->singleton('laravel-html-minify', function () {
-            return new LaravelHtmlMinify;
+            return new LaravelHtmlMinifyFacade;
         });
 
         $this->app['router']->middleware('LaravelMinifyHtml', 'DipeshSukhia\LaravelHtmlMinify\Middleware\LaravelMinifyHtml');

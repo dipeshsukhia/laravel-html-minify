@@ -30,6 +30,9 @@ for enable
 HTML_MINIFY = true
 for disable
 HTML_MINIFY = false
+
+for particular html part 
+LaravelHtmlMinifyFacade::htmlMinify("<div>...</div>");
 ```
 
 ### Testing
