@@ -15,6 +15,11 @@ You can install the package via composer:
 composer require dipeshsukhia/laravel-html-minify
 ```
 
+## Sponsor Laravel HTML Minifier on GitHub
+
+[Become a sponsor to Dipesh Sukhia
+](https://github.com/sponsors/dipeshsukhia).
+
 ## Usage
 
 ``` php
@@ -30,6 +35,11 @@ for enable
 HTML_MINIFY = true
 for disable
 HTML_MINIFY = false
+
+exclude route name for exclude from minify
+'exclude_route' => [
+        // 'routeName'
+]
 
 for particular html part 
 LaravelHtmlMinifyFacade::htmlMinify("<div>...</div>");

@@ -4,9 +4,6 @@ namespace DipeshSukhia\LaravelHtmlMinify;
 
 use Illuminate\Support\Facades\Facade;
 
-/**
- * @see \DipeshSukhia\LaravelHtmlMinify\Skeleton\SkeletonClass
- */
 class LaravelHtmlMinifyFacade extends Facade
 {
     /**
