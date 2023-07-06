@@ -8,7 +8,12 @@ use DipeshSukhia\LaravelHtmlMinify\LaravelHtmlMinifyFacade;
 
 class LaravelMinifyHtml
 {
-    public function handle($request, Closure $next)
+    /**
+     * @param $request
+     * @param Closure $next
+     * @return mixed
+     */
+    public function handle($request, Closure $next): mixed
     {
         $response = $next($request);
 
@@ -23,17 +28,29 @@ class LaravelMinifyHtml
         return $response;
     }
 
-    protected function isResponseObject($response)
+    /**
+     * @param $response
+     * @return bool
+     */
+    protected function isResponseObject($response): bool
     {
         return is_object($response) && $response instanceof Response;
     }
 
-    protected function isHtmlResponse(Response $response)
+    /**
+     * @param Response $response
+     * @return bool
+     */
+    protected function isHtmlResponse(Response $response): bool
     {
         return strtolower(strtok($response->headers->get('Content-Type'), ';')) === 'text/html';
     }
 
-    protected function isRouteExclude($request)
+    /**
+     * @param $request
+     * @return bool
+     */
+    protected function isRouteExclude($request): bool
     {
         return in_array($request->route()->getName(),config('htmlminify.exclude_route', []));
     }

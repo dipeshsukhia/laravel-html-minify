@@ -4,7 +4,11 @@ namespace DipeshSukhia\LaravelHtmlMinify;
 
 class LaravelHtmlMinify
 {
-    public function htmlMinify($html = null)
+    /**
+     * @param $html
+     * @return array|string|null
+     */
+    public function htmlMinify($html = null): array|string|null
     {
         $replace = [
 

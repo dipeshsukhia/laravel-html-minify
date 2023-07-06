@@ -11,12 +11,16 @@ class LaravelHtmlMinifyFacade extends Facade
      *
      * @return string
      */
-    protected static function getFacadeAccessor()
+    protected static function getFacadeAccessor(): string
     {
         return 'laravel-html-minify';
     }
 
-    public static function htmlMinify($html = null)
+    /**
+     * @param $html
+     * @return array|string|null
+     */
+    public static function htmlMinify($html = null): array|string|null
     {
         return (new LaravelHtmlMinify())->htmlMinify($html);
     }

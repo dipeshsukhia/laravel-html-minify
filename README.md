@@ -7,6 +7,13 @@
 
 This package helps to minify your project`s html (blade file) output.
 
+### Requirements
+
+| Laravel                        |                   Package |
+|--------------------------------|--------------------------:|
+| 5.x to 9.x                     |                       2.x |
+| 10.x                           |                       3.x |
+
 ## Installation
 
 You can install the package via composer:
