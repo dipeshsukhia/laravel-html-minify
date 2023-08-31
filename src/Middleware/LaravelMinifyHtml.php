@@ -52,6 +52,9 @@ class LaravelMinifyHtml
      */
     protected function isRouteExclude($request): bool
     {
+        if (!$request->route()) {
+            return false;
+        }
         return in_array($request->route()->getName(),config('htmlminify.exclude_route', []));
     }
 }
