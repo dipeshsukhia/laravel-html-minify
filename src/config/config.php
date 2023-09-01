@@ -14,6 +14,20 @@ return [
 
     // exclude route name for exclude from minify
     'exclude_route' => [
-        // 'routeName'
-    ]
+        // 'routeName'htmlminify.exclude_route
+    ],
+    
+    'status_server_error' => [
+        500,
+        501,
+        502,
+        503,
+        504,
+        505,
+        506,
+        507,
+        508,
+        510,
+        511
+    ],
 ];

@@ -21,7 +21,8 @@ class LaravelMinifyHtml
             $this->isResponseObject($response) &&
             $this->isHtmlResponse($response) &&
             Config::get('htmlminify.default') &&
-            !$this->isRouteExclude($request)
+            !$this->isRouteExclude($request) &&
+            !$this->isErrorServer($response)
         ) {
             $response->setContent(LaravelHtmlMinifyFacade::htmlMinify($response->getContent()));
         }
@@ -55,6 +56,11 @@ class LaravelMinifyHtml
         if (!$request->route()) {
             return false;
         }
-        return in_array($request->route()->getName(),config('htmlminify.exclude_route', []));
+        return in_array($request->route()->getName(), config('htmlminify.exclude_route', []));
+    }
+
+    protected function isErrorServer($response): bool
+    {
+        return in_array($response->getStatusCode(), config('htmlminify.status_server_error', []));
     }
 }
