@@ -22,7 +22,7 @@ class LaravelMinifyHtml
             $this->isResponseObject($response) &&
             $this->isHtmlResponse($response) &&
             !$this->isServerError($response) &&
-            !$this->isRouteExclude($request)            
+            !$this->isRouteExclude($request)
         ) {
             $response->setContent(LaravelHtmlMinifyFacade::htmlMinify($response->getContent()));
         }
@@ -56,7 +56,11 @@ class LaravelMinifyHtml
         return $request->route() && in_array($request->route()->getName(),config('htmlminify.exclude_route', []));
     }
 
-    protected function isServerError(Response $response)
+    /**
+     * @param Response $response
+     * @return bool
+     */
+    protected function isServerError(Response $response): bool
     {
         return in_array($response->getStatusCode(), [
             Response::HTTP_INTERNAL_SERVER_ERROR,
