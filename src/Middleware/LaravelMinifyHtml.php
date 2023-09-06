@@ -13,10 +13,11 @@ class LaravelMinifyHtml
         $response = $next($request);
 
         if (
+            Config::get('htmlminify.default') &&
             $this->isResponseObject($response) &&
             $this->isHtmlResponse($response) &&
-            Config::get('htmlminify.default') &&
-            !$this->isRouteExclude($request)
+            !$this->isServerError($response) &&
+            !$this->isRouteExclude($request)            
         ) {
             $response->setContent(LaravelHtmlMinifyFacade::htmlMinify($response->getContent()));
         }
@@ -35,6 +36,23 @@ class LaravelMinifyHtml
 
     protected function isRouteExclude($request)
     {
-        return in_array($request->route()->getName(),config('htmlminify.exclude_route', []));
+        return $request->route() && in_array($request->route()->getName(),config('htmlminify.exclude_route', []));
+    }
+
+    protected function isServerError(Response $response)
+    {
+        return in_array($response->getStatusCode(), [
+            Response::HTTP_INTERNAL_SERVER_ERROR,
+            Response::HTTP_NOT_IMPLEMENTED,
+            Response::HTTP_BAD_GATEWAY,
+            Response::HTTP_SERVICE_UNAVAILABLE,
+            Response::HTTP_GATEWAY_TIMEOUT,
+            Response::HTTP_VERSION_NOT_SUPPORTED,
+            Response::HTTP_VARIANT_ALSO_NEGOTIATES_EXPERIMENTAL,
+            Response::HTTP_INSUFFICIENT_STORAGE,
+            Response::HTTP_LOOP_DETECTED,
+            Response::HTTP_NOT_EXTENDED,
+            Response::HTTP_NETWORK_AUTHENTICATION_REQUIRED,
+        ]);
     }
 }
