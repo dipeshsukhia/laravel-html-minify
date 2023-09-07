@@ -1,4 +1,5 @@
 <?php
+
 namespace DipeshSukhia\LaravelHtmlMinify\Middleware;
 
 use Closure;
@@ -18,7 +19,7 @@ class LaravelMinifyHtml
             $this->isResponseObject($response) &&
             $this->isHtmlResponse($response) &&
             !$this->isRouteExclude($request) &&
-            ( $response->isSuccessful() || App::isProduction() )
+            ($response->isSuccessful() || App::isProduction())
         ) {
             $response->setContent(LaravelHtmlMinifyFacade::htmlMinify($response->getContent()));
         }
@@ -37,6 +38,6 @@ class LaravelMinifyHtml
 
     protected function isRouteExclude($request)
     {
-        return $request->route() && in_array($request->route()->getName(),config('htmlminify.exclude_route', []));
+        return $request->route() && in_array($request->route()->getName(), Config::get('htmlminify.exclude_route', []));
     }
 }
