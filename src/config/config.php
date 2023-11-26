@@ -11,6 +11,7 @@ return [
     |
     */
     'default' => env('HTML_MINIFY', true),
+    'admin_route' => env('ADMIN_ROUTE_NAME'),
 
     // exclude route name for exclude from minify
     'exclude_route' => [
