@@ -4,11 +4,12 @@ namespace DipeshSukhia\LaravelHtmlMinify;
 
 class LaravelHtmlMinify
 {
+
     /**
-     * @param $html
-     * @return array|string|null
+     * @param string|null $html
+     * @return string
      */
-    public function htmlMinify($html = null): array|string|null
+    public function htmlMinify( ?string $html ): string
     {
         $replace = [
 
@@ -64,6 +65,6 @@ class LaravelHtmlMinify
 
         ];
 
-        return preg_replace(array_keys($replace), array_values($replace), $html);
+        return preg_replace( array_keys( $replace ), array_values( $replace ), ( string ) $html);
     }
 }
