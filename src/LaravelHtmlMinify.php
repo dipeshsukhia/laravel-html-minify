@@ -37,7 +37,7 @@ class LaravelHtmlMinify
             '/,[\r\n\t ]?{[\r\n\t ]+/s'                                         => ',{',
 
             //remove new-line after JS's line end (only most obvious and safe cases)
-            '/\),[\r\n\t ]+/s'                                                  => '),',
+            '/\),[\r\n\t ]+/s'                                                  => '), ',
 
             //remove quotes from HTML attributes that does not contain spaces; keep quotes around URLs!
             //'~([\r\n\t ])?([a-zA-Z0-9]+)=\"([a-zA-Z0-9_\\-]+)\"([\r\n\t ])?~s'  => '$1$2=$3$4',
